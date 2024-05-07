@@ -1,0 +1,43 @@
+/*
+ *
+ * I also modified gradle.settings and removed the plugin section
+ * that was bc it used some jcenter related wank-material,  which
+ * sanctions Iran. therefore fuck you, jcenter. I could have also
+ * used a vpn, but jcenter isn't worth bandwidth
+ */
+
+plugins {
+	id 'application' // easy CLI support (not used here,though!)
+	id 'java'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'javax.xml.bind:jaxb-api:2.3.1'
+	implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.3'
+}
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(11)
+	}
+}
+
+application {
+	mainClass = 'org.example.App'
+}
+
+jar {
+	from {
+		configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
+	archiveClassifier = 'all'
+	manifest {
+		attributes 'Main-Class': 'org.example.App' 
+	}
+}
+

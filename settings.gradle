@@ -1,0 +1,6 @@
+/*
+ * removed 'plugin' section 
+ */
+
+rootProject.name = 'mrdude'
+include('app')

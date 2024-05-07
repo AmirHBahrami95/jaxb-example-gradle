@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Zombie>
+    <EatRecords>
+        <human>Jack</human>
+        <human>Sshit</human>
+        <human>Joe Biden</human>
+        <human>George Washington</human>
+    </EatRecords>
+    <hp>0</hp>
+    <name>Fred</name>
+</Zombie>
